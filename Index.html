@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#d95b00">
+<title>St John's Digital Records</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#f7f7f7;color:#30251f;font-family:Arial,sans-serif}
+header{background:linear-gradient(135deg,#ed7800,#bd4300);color:white;padding:28px 18px 24px;border-radius:0 0 25px 25px}
+header h1{font-size:27px;margin:8px 0}
+header p{margin:5px 0;font-size:14px}
+main{padding:18px;max-width:850px;margin:auto}
+.welcome{background:white;border-radius:16px;padding:18px;margin-bottom:20px;box-shadow:0 2px 9px #00000012}
+.welcome h2{margin:0 0 7px;font-size:21px}
+.welcome p{margin:0;color:#777;font-size:14px}
+h3{font-size:18px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.tile{background:white;border:1.5px solid #ed7800;border-radius:15px;padding:18px 8px;min-height:120px;text-align:center;cursor:pointer;color:#33251f;font-size:15px;font-weight:bold;box-shadow:0 2px 5px #0000000c}
+.tile span{display:block;font-size:29px;margin-bottom:10px}
+.tile:active{background:#fff0e3}
+.panel{display:none;background:white;border-radius:16px;padding:20px;margin-top:18px}
+.panel button,.back{background:#d95b00;color:white;border:0;border-radius:10px;padding:12px 18px;font-size:15px;margin-top:12px}
+footer{text-align:center;color:#888;font-size:12px;padding:25px}
+@media(min-width:600px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+</style>
+</head>
+<body>
+<header>
+<div style="font-size:34px">🍴</div>
+<h1>St John's</h1>
+<h2 style="margin:0;font-size:23px">Digital Records</h2>
+<p>Restaurant Management System</p>
+</header>
+<main>
+<section class="welcome">
+<h2>Welcome to your restaurant</h2>
+<p>Digital records and daily management</p>
+</section>
+<h3>Restaurant Records</h3>
+<div class="grid" id="modules">
+<button class="tile" onclick="openModule('Stock List & Ordering')"><span>📦</span>Stock List & Ordering</button>
+<button class="tile" onclick="openModule('Fridge & Freezer Temperatures')"><span>🌡️</span>Fridge & Freezer Temperatures</button>
+<button class="tile" onclick="openModule('Cooking & Reheating Temperatures')"><span>🍳</span>Cooking & Reheating Temperatures</button>
+<button class="tile" onclick="openModule('Food Waste')"><span>🗑️</span>Food Waste</button>
+<button class="tile" onclick="openModule('Daily Cleaning')"><span>🧽</span>Daily Cleaning</button>
+<button class="tile" onclick="openModule('Delivery & Goods-In Checks')"><span>🚚</span>Delivery & Goods-In Checks</button>
+<button class="tile" onclick="openModule('Oil Temperature & Quality')"><span>🍟</span>Oil Temperature & Quality</button>
+<button class="tile" onclick="openModule('Food Safety & Hygiene')"><span>🛡️</span>Food Safety & Hygiene</button>
+<button class="tile" onclick="openModule('Pest Control')"><span>🐞</span>Pest Control</button>
+<button class="tile" onclick="openModule('Staff Training')"><span>👨‍🍳</span>Staff Training</button>
+<button class="tile" onclick="openModule('Maintenance & Equipment')"><span>🔧</span>Maintenance & Equipment</button>
+<button class="tile" onclick="openModule('Allergen Checks')"><span>⚠️</span>Allergen Checks</button>
+</div>
+<section class="panel" id="panel">
+<h2 id="moduleTitle"></h2>
+<p>This section is part of St John's Digital Records.</p>
+<p>Record entry forms and secure saving will be added next.</p>
+<button onclick="closeModule()">Back to dashboard</button>
+</section>
+</main>
+<footer>St John's Digital Records</footer>
+<script>
+function openModule(name){
+document.getElementById('moduleTitle').textContent=name;
+document.getElementById('panel').style.display='block';
+document.getElementById('modules').style.display='none';
+document.getElementById('panel').scrollIntoView({behavior:'smooth'});
+}
+function closeModule(){
+document.getElementById('panel').style.display='none';
+document.getElementById('modules').style.display='grid';
+}
+</script>
+</body>
+</html>
